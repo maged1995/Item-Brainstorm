@@ -9,15 +9,15 @@
     <meta name="description" content="Free Web tutorials">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="John Doe"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
     <title>Hello</title>
   </head>
 
   <body>
 
-    <header>
-
-    </header>
+    <?php include 'header.html';?>
     <main>
       <div>
 
