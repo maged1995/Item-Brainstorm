@@ -3,27 +3,27 @@ create database Item_Brainstorm;
 create table users(
   id int not null auto_increment, email varchar(254) not null,
   username varchar(24), passwordHash varchar(32) not null,
-  birthDate date,
+  birthDate date, unique(email), unique(username),
   constraint chk_email check (email like '%_@__%.__%'),
   primary key(id)
 );
 
 create table items(
-  id int not null auto_increment, user int not null
+  id int not null auto_increment, user int not null,
   name varchar(24) not null, imageFol text not null,
   applied boolean, dateCreated date, description text,
   FOREIGN KEY (user) REFERENCES users(id),
-  primary key(id)
+  unique(imageFol), primary key(id)
 );
 
 create table types(
-  id int not null auto_increment, name varchar(30),
-  primary key(id)
+  id int not null auto_increment, name varchar(30) not null,
+  unique(name), primary key(id)
 );
 
 create table genres(
-  id int not null auto_increment, name varchar(30),
-  primary key(id)
+  id int not null auto_increment, name varchar(30) not null,
+  unique(name), primary key(id)
 );
 
 create table groups(
