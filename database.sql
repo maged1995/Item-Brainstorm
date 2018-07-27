@@ -11,24 +11,28 @@ create table users(
 create table items(
   id int not null auto_increment,
   name varchar(24) not null, imageFol text not null,
-  applied boolean, dateCreated date, description text
+  applied boolean, dateCreated date, description text,
+  primary key(id)
 );
 
 create table types(
-  id int not null auto_increment, name varchar(30)
+  id int not null auto_increment, name varchar(30),
+  primary key(id)
 );
 
 create table genres(
-  id int not null auto_increment, name varchar(30)
+  id int not null auto_increment, name varchar(30),
+  primary key(id)
 );
 
 create table groups(
   id int not null auto_increment, name varchar(30),
-  description text
+  description text, primary key(id)
 );
 
 create table posts(
-  id int not null auto_increment, post text not null, group int
+  id int not null auto_increment, post text not null,
+  group int, primary key(id)
 );
 
 create table posts_votes(
