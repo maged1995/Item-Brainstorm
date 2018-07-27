@@ -10,7 +10,10 @@ create table Users(
 create table Items(
   id int not null auto_increment,
   name varchar(24) not null, imageFol text not null,
-  dateCreated date);
+  applied boolean, dateCreated date);
 
 create table type(
   id int not null auto_increment, name varchar(30));
+
+create table Users_Items(
+  type int not null, item int not null);
