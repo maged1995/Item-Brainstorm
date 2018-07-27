@@ -1,8 +1,8 @@
 create database Item_Brainstorm;
 
 create table users(
-  id int not null auto_increment, email varchar(254),
-  username varchar(24), passwordHash varchar(32),
+  id int not null auto_increment, email varchar(254) not null,
+  username varchar(24), passwordHash varchar(32) not null,
   birthDate date,
   constraint chk_email check (email like '%_@__%.__%'),
   primary key(id)
