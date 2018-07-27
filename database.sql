@@ -35,6 +35,11 @@ create table posts(
   group int, primary key(id)
 );
 
+create table itemRequests(
+  id int not null auto_increment, requestDesc text not null,
+  group int, primary key(id)
+);
+
 create table posts_votes(
   post int not null, vote bit not null,
   user int not null
@@ -62,9 +67,13 @@ create table groups_genres(
 );
 
 create table users_groups(
-  group int not null, user int not null
+  group int not null, user int not null, accepted boolean not null
 );
 
 create table groups_admins(
-  group int not null, adminUser int not null, accepted boolean not null
+  group int not null, adminUser int not null
+);
+
+create table item_requests(
+  item int not null, request int not null
 );
