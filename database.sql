@@ -22,6 +22,23 @@ create table genres(
   id int not null auto_increment, name varchar(30)
 );
 
-create table users_items(
+create table group(
+  id int not null auto_increment, name varchar(30),
+  description text,
+)
+
+create table types_items(
   type int not null, item int not null
+);
+
+create table users_genres(
+  user int not null, genre int not null
+);
+
+create table items_genres(
+  item int not null, genre int not null
+);
+
+create table groups_genres(
+  group int not null, genre int not null
 );
