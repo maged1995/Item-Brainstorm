@@ -27,6 +27,15 @@ create table groups(
   description text
 );
 
+create table posts(
+  id int not null auto_increment, post text not null, group int
+);
+
+create table posts_votes(
+  post int not null, vote bit not null,
+  user int not null
+);
+
 create table items_votes(
   item int not null, vote bit not null,
   user int not null
