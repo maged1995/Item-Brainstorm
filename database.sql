@@ -11,7 +11,7 @@ create table users(
 create table items(
   id int not null auto_increment,
   name varchar(24) not null, imageFol text not null,
-  applied boolean, dateCreated date
+  applied boolean, dateCreated date, description text
 );
 
 create table types(
@@ -22,10 +22,15 @@ create table genres(
   id int not null auto_increment, name varchar(30)
 );
 
-create table group(
+create table groups(
   id int not null auto_increment, name varchar(30),
-  description text,
-)
+  description text
+);
+
+create table items_votes(
+  item int not null, vote bit not null,
+  user int not null
+);
 
 create table types_items(
   type int not null, item int not null
@@ -41,4 +46,12 @@ create table items_genres(
 
 create table groups_genres(
   group int not null, genre int not null
+);
+
+create table users_groups(
+  group int not null, user int not null
+);
+
+create table groups_admins(
+  group int not null, adminUser int not null, accepted boolean not null
 );
