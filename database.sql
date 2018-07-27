@@ -4,13 +4,13 @@ create table users(
   id int not null auto_increment, email varchar(254) not null,
   username varchar(24), passwordHash varchar(32) not null,
   birthDate date, unique(email), unique(username),
-  constraint chk_email check (email like '%_@__%.__%'),
+  constraint chk_email check(email like '%_@__%.__%'),
   primary key(id)
 );
 
 create table items(
   id int not null auto_increment, user int not null,
-  name varchar(24) not null, imageFol text not null,
+  name varchar(24) not null, imageFol varchar(255) not null,
   applied boolean, dateCreated date, description text,
   FOREIGN KEY (user) REFERENCES users(id),
   unique(imageFol), primary key(id)
@@ -33,14 +33,16 @@ create table groups(
 
 create table posts(
   id int not null auto_increment, post text not null,
-  group int, user int not null
-  FOREIGN KEY (user) REFERENCES users(id), primary key(id)
+  groupID int, user int not null,
+  FOREIGN KEY (user) REFERENCES users(id),
+  FOREIGN KEY (groupID) REFERENCES groups(id), primary key(id)
 );
 
 create table itemRequests(
   id int not null auto_increment, requestDesc text not null,
-  group int, user int not null
-  FOREIGN KEY (user) REFERENCES users(id), primary key(id)
+  groupID int, user int not null,
+  FOREIGN KEY (user) REFERENCES users(id),
+  FOREIGN KEY (groupID) REFERENCES groups(id), primary key(id)
 );
 
 create table posts_votes(
@@ -51,7 +53,7 @@ create table posts_votes(
 
 create table items_votes(
   item int not null, vote bit not null,
-  user int not null, FOREIGN KEY (item) REFERENCES item(id),
+  user int not null, FOREIGN KEY (item) REFERENCES items(id),
   FOREIGN KEY (user) REFERENCES users(id)
 );
 
@@ -74,20 +76,20 @@ create table items_genres(
 );
 
 create table groups_genres(
-  group int not null, genre int not null,
-  FOREIGN KEY (group) REFERENCES groups(id),
+  groupID int not null, genre int not null,
+  FOREIGN KEY (groupID) REFERENCES groups(id),
   FOREIGN KEY (genre) REFERENCES genres(id)
 );
 
 create table users_groups(
-  group int not null, user int not null, accepted boolean not null,
-  FOREIGN KEY (group) REFERENCES groups(id),
+  groupID int not null, user int not null, accepted boolean not null,
+  FOREIGN KEY (groupID) REFERENCES groups(id),
   FOREIGN KEY (user) REFERENCES users(id)
 );
 
 create table groups_admins(
-  group int not null, adminUser int not null,
-  FOREIGN KEY (group) REFERENCES groups(id),
+  groupID int not null, adminUser int not null,
+  FOREIGN KEY (groupID) REFERENCES groups(id),
   FOREIGN KEY (adminUser) REFERENCES users(id)
 );
 
