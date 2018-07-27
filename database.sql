@@ -9,7 +9,7 @@ create table users(
 );
 
 create table items(
-  id int not null auto_increment,
+  id int not null auto_increment, user int not null
   name varchar(24) not null, imageFol text not null,
   applied boolean, dateCreated date, description text,
   primary key(id)
