@@ -98,3 +98,9 @@ create table item_requests(
   FOREIGN KEY (item) REFERENCES items(id),
   FOREIGN KEY (request) REFERENCES itemRequests(id)
 );
+
+create table types_users(
+  type int not null, user int not null,
+  FOREIGN KEY (type) REFERENCES types(id),
+  FOREIGN KEY (user) REFERENCES users(id)
+);
