@@ -22,27 +22,9 @@
       };
       firebase.initializeApp(config);
     </script>
-    <script>
-      function callGoogleSignIn(){
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          var token = result.credential.accessToken;
-          // The signed-in user info.
-          var user = result.user;
-          // ...
-        }).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // The email of the user's account used.
-          var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
-          // ...
-        });
-      }
-    </script>
+    <script src="js\GoogleLogin.js"></script>
+    <script src="js\fsLogin.js"></script>
+    <script src="js\twitterLogin.js"></script>
   </head>
   <body>
     <?php include "header.html" ?>
@@ -55,8 +37,23 @@
           <input type="submit" value="login"/>
         </form>
         <input type="button" onclick=callGoogleSignIn() value="Google Sign In"/>
+        <input type="button" onclick=callTwitterSignIn() value="Twitter Sign In"/>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=2156678977694115&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
         <!-- google, facebook, and other login api's will be here -->
       </div>
+      <!-- <script>
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+      </script> -->
     </main>
   </body>
 </html>
