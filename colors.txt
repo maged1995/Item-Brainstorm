@@ -1,0 +1,4 @@
+body: background: linear-gradient(45deg, black, darkmagenta , mediumpurple, darkmagenta, black) and many nonetransparent
+
+navigation bar: background: linear-gradient(45deg, black, darkmagenta , mediumpurple, darkmagenta, black)
+	search: background-color: #552655 or transparent

@@ -10,9 +10,6 @@ function generateRandomString($length = 32) {
     return $randomString;
 }
 
-$LOGIN_SESSION('username') = '';
-$LOGIN_SESSION('password') = '';
-$LOGIN_SESSION('state') = generateRandomString();
 
 
 ?>
@@ -28,7 +25,7 @@ $LOGIN_SESSION('state') = generateRandomString();
     <meta name="author" content="John Doe"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>Hello</title>
   </head>
 
